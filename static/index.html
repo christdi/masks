@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Masks of Nyarlathotep</title>
+  <link href="http://fonts.cdnfonts.com/css/im-fell-dw-pica-sc" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <h1 id="masks-title">MASKS OF NYARLATHOTEP</h1>
+      <h2>will return at</h2>
+      <h3 id="countdown"></h3>
+    </div>
+  </div>
+
+  <script>
+  // Set the date we're counting down to
+  var targetDate = new Date("Aug 13, 2022 20:30 GMT+01:00");
+  var countDownDate = targetDate.getTime();
+
+  let update = function() {
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    // Display the result in the element with id="demo"
+    document.getElementById("countdown").innerHTML = targetDate + "<br/>" + days + " days, " + hours + " hours and " + minutes + " minutes ";  
+
+    return distance < 0;
+  }
+
+  // Update the count down every 1 second
+  let x = setInterval(function() {
+    if (update()) {
+      clearInterval(x);
+
+      document.getElementById("countdown").innerHTML = "The near future!";      
+    }
+  }, 1000);
+
+  update();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+# Masks of Nylarlathotep static site
