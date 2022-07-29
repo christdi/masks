@@ -3,13 +3,16 @@ body, html {
     margin: 0;
 }
 
-.container { 
-    font-family: 'IM FELL DW Pica SC', sans-serif;
+.container {     
     position: relative;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;    
+}
+
+h1, h2 {
+    font-family: 'IM FELL DW Pica SC', sans-serif;
 }
 
 .container::before {
@@ -29,6 +32,12 @@ body, html {
 
 .panel {
     text-align: center;
+    background: #FDE08D;
+    background: -webkit-linear-gradient(top, #8f6B29, #FDE08D, #DF9F28);
+    background: linear-gradient(top, #8f6B29, #FDE08D, #DF9F28);
+    padding: 15px;
+    border: 3px black solid;
+    box-shadow: 10px 10px 10px black;
 }
 
 h1#masks-title {
