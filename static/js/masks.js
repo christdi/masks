@@ -1,15 +1,19 @@
-let targetDate = new Date(data != null && data.target != null ? data.target : null) ;
+let targetDate = new Date(typeof data === 'undefined' || typeof data.target === 'undefined' ? null : data.target);
 
 let countdown = targetDate.getTime();
-let element = document.getElementById("countdown");
+let date_element = document.getElementById("date");
+let countdown_element = document.getElementById("countdown");
 let distance = countdown - new Date().getTime();
 
 if (distance < 0) {
-  element.innerHTML = "Some date in the near future!";
+  date_element.innerHTML = "Some date in the near future";
 } else {
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
   let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-  element.innerHTML = `${targetDate}<br/>${days} days, ${hours} hours and ${minutes} minutes`;
+  let prettyDate = new Intl.DateTimeFormat('en', { dateStyle: "full", timeStyle: "full" }).format(targetDate);
+
+  date_element.innerHTML = prettyDate;
+  countdown_element.innerHTML = `${days} days, ${hours} hours and ${minutes} minutes`;
 }
